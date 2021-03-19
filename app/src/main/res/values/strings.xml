@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Textview</string>
+    <string name="text_view">Android textview with kotlin</string>
+    <string name="text_on_click">COMPUTER SCIENCE PORTAL</string>
+</resources>

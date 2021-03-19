@@ -1,7 +1,11 @@
 package com.kotlin.textview
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.TypedValue
+import android.view.ViewGroup
+import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 
@@ -9,11 +13,28 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        // finding the textView
-        val textView = findViewById(R.id.text_view_id) as TextView
-        //onclick
-        textView?.setOnClickListener{ Toast.makeText(this@MainActivity,
-            "COMPUTER SCIENCE PORTAL", Toast.LENGTH_LONG).show() }
+        val layout = findViewById<RelativeLayout>(R.id.root)
+
+        // Create TextView programmatically.
+        val textView = TextView(this)
+
+        // setting height and width
+        textView.layoutParams= RelativeLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT)
+        // setting text
+        textView.setText("Welcome")
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40f)
+        textView.setTextColor(Color.MAGENTA)
+        // onClick the text a message will be displayed "HELLO GEEK"
+        textView.setOnClickListener()
+        {
+            Toast.makeText(this@MainActivity, "HELLO Everyone!",
+                    Toast.LENGTH_LONG).show()
+        }
+
+        // Add TextView to LinearLayout
+        layout ?.addView(textView)
 
     }
 }
